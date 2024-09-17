@@ -1,0 +1,10 @@
+---
+# ToDo: Get desktop_environment
+
+- name: Setting host facts using complex arguments
+  ansible.builtin.set_fact:
+    template: monitors.xml
+  when: desktop_environment == "Gnome"
+
+- name: Desktop specific
+  include_tasks: "desktop:/{{ desktop_environment }}/main.yml"
